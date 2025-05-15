@@ -108,7 +108,9 @@ static int _nonnull_ interact_with_dmenu(struct config *cfg, int *input_pipe,
 
     struct cs_snip *snip = NULL;
     while (cs_snip_iter(&guard, CS_ITER_NEWEST_FIRST, &snip)) {
-        expect(dprintf(input_pipe[1], "[%*zu] ", pad, clip_idx--) > 0);
+        if(cfg->show_clips_indices)
+            expect(dprintf(input_pipe[1], "[%*zu] ", pad, clip_idx--) > 0);
+
         expect(dprintf_ellipsise_long_snip_line(input_pipe[1], snip->line) > 0);
         if (snip->nr_lines > 1) {
             expect(dprintf(input_pipe[1], " (%zu lines)", snip->nr_lines) > 0);

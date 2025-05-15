@@ -44,6 +44,7 @@ struct config {
     int max_clips;
     int max_clips_batch;
     int oneshot;
+    bool show_clips_indices;
     bool deduplicate;
     bool own_clipboard;
     struct selection *owned_selections;

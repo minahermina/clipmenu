@@ -274,6 +274,8 @@ int config_setup_internal(FILE *file, struct config *cfg) {
         {"max_clips_batch", "CM_MAX_CLIPS_BATCH", &cfg->max_clips_batch,
          convert_positive_int, "100", 0},
         {"oneshot", "CM_ONESHOT", &cfg->oneshot, convert_positive_int, "0", 0},
+        {"show_clips_indices", "CM_SHOW_CIIPS_INDICES", &cfg->show_clips_indices,
+         convert_bool, "1", 0},
         {"deduplicate", "CM_DEDUPLICATE", &cfg->deduplicate, convert_bool, "0",
          0},
         {"own_clipboard", "CM_OWN_CLIPBOARD", &cfg->own_clipboard, convert_bool,
